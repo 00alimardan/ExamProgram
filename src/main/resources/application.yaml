@@ -1,0 +1,19 @@
+server:
+  port: 8080
+  error:
+      include-message: always
+      include-exception: true
+      include-stacktrace: never
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/MyDatabase
+    username: user
+    password: password
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+

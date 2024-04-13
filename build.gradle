@@ -1,0 +1,37 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version "$springBootVersion"
+    id 'io.spring.dependency-management' version "$dependencyManagement"
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    sourceCompatibility = '17'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // Lombok
+    compileOnly "org.projectlombok:lombok:${lombokVersion}"
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+
+    // Database
+    implementation "org.springframework.boot:spring-boot-starter-data-jpa:${jpaVersion}"
+    runtimeOnly "org.postgresql:postgresql:${postgresql}"
+
+    // OpenApi
+    implementation "org.springdoc:springdoc-openapi-starter-webmvc-ui:${openapi}"
+
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
